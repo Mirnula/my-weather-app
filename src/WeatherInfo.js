@@ -1,31 +1,33 @@
 import React from "react";
 import DisplayDate from "./DisplayDate";
+import WeatherIcon from "./WeatherIcon";
+import WeatherTemperature from "./WeatherTemperature";
+
 
 export default function WeatherInfo (props){
 
     return (
-        <div className = "WeatherInfo ">
+        <div className = "WeatherInfo "> 
     <div className="current-weather">
     <div className = "row" >
     <div className="col-6">
-    <img src ={props.info.icon} alt = {props.info.icon} className="icon"/>
+        <div className="iconWeather">
+        <WeatherIcon code= {props.data.icon} /></div>
     <ul className="weatherDate">
     <li className="weather-description">
-        {props.info.description}
+        {props.data.description}
     </li>
     <li className="date-time">
-    <DisplayDate date= {props.info.date}/>
+    <DisplayDate date= {props.data.date}/>
     </li>
     </ul>
     </div>
 <div className= "col-6">
-<h1 className="city"> {props.info.city}</h1>
-<h2 className="temmperature">{props.info.temperature}
-<span className= "units">°C|F </span>
-</h2>
+<h1 className="city"> {props.data.city}</h1>
+<WeatherTemperature celsius = {props.data.temperature}/>
 <ul className="humid-wind">
-    <li>Humidity: {props.info.humidity}%</li>
-    <li>Wind: {props.info.wind}km/h</li>
+    <li>Humidity: {props.data.humidity}%</li>
+    <li>Wind: {props.data.wind}km/h</li>
 </ul>
 </div>
 </div>

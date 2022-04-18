@@ -4,6 +4,7 @@ import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
 
 
+
 export default function WeatherShape (props) {
     
     const [weatherData, setWeatherData]= useState ({ready: false})
@@ -11,14 +12,15 @@ export default function WeatherShape (props) {
 
 function displayWeather (response){
 setWeatherData ({
+    ready: true,
     temperature: Math.round(response.data.main.temp),
     wind: response.data.wind.speed,
     city: response.data.name,
     description: response.data.weather[0].description,
     humidity: response.data.main.humidity, 
-    icon: response.data.weather[0].icon,
+    icon:  response.data.weather[0].icon,
     date : new Date (response.data.dt * 1000)
-})
+});
 
 
 }
@@ -56,12 +58,13 @@ return (
     </div>
     </div>
     </form>
-    <WeatherInfo info= {weatherData}/>
+    <WeatherInfo data= {weatherData}/>
 
 </div> 
 
 
-);}
+);
+}
 else {
 search();
 

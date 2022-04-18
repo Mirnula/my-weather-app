@@ -7,7 +7,7 @@ export default function App() {
     <div className="App">
       <div className="container">
         
-<h1>Weather App</h1>
+
 <WeatherShape mainCity = "Athens"/>
  <span className = "link"><a href = "https://github.com/Mirnula/my-weather-app">Open-source code </a>
    by Mirna Brizic</span>
